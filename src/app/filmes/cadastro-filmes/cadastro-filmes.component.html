@@ -3,16 +3,10 @@
   <mat-card class="center width50" >
     <form [formGroup]="cadastro" (ngSubmit)="salvar()" (ngReset)="reiniciarForm()">
       <mat-card-content>
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Título *" name="titulo" formControlName="titulo">
-            <mat-error *ngIf="validacao.hasErrorValidator(f.titulo, 'required')">Campo obrigatório!</mat-error>
-            <mat-error *ngIf="validacao.hasErrorValidator(f.titulo, 'minlength')">Campo deve conter no minimo 2 caracteres!</mat-error>
-            <mat-error *ngIf="validacao.hasErrorValidator(f.titulo, 'maxlength')">Campo deve conter no máximo 256 caracteres!</mat-error>
-          </mat-form-field>
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Link Foto" name="urlFoto" formControlName="urlFoto">
-            <mat-error *ngIf="validacao.hasErrorValidator(f.urlFoto, 'minlength')">Campo deve conter no minimo 10 caracteres!</mat-error>
-          </mat-form-field>
+          <dio-input-text titulo="Título *" controlName="titulo" [formGroup]="cadastro"></dio-input-text>
+
+          <dio-input-text titulo="Link Foto" controlName="urlFoto" [formGroup]="cadastro"></dio-input-text>
+
           <mat-form-field class="full-width">
               <input matInput
                 [matDatepicker]="picker"
@@ -24,20 +18,19 @@
                 <mat-error *ngIf="((cadastro.touched || cadastro.dirty) && f.dtLancamento.errors?.required)">Campo obrigatório!</mat-error>
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-          <mat-form-field class="full-width">
-            <textarea matInput placeholder="Descrição" name="descricao" formControlName="descricao"></textarea>
           </mat-form-field>
+
+          <dio-input-textarea titulo="Descrição" controlName="descricao" [formGroup]="cadastro"></dio-input-textarea>
+
           <mat-form-field class="full-width">
             <input matInput placeholder="Nota IMDb *" type="number" min="0" max="10" step="0.1"  name="nota" formControlName="nota">
             <mat-error *ngIf="validacao.hasErrorValidator(f.nota, 'required')">Campo obrigatório!</mat-error>
             <mat-error *ngIf="validacao.hasErrorValidator(f.nota, 'min')">Campo deve conter nota entre 0 e 10!</mat-error>
             <mat-error *ngIf="validacao.hasErrorValidator(f.nota, 'max')">Campo deve conter nota entre 0 e 10!</mat-error>
           </mat-form-field>
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Link IMDb" name="urlIMDb" formControlName="urlIMDb">
-            <mat-error *ngIf="validacao.hasErrorValidator(f.urlIMDb, 'minlength')">Campo deve conter no minimo 10 caracteres!</mat-error>
-          </mat-form-field>
+
+          <dio-input-text titulo="Link IMDb" controlName="urlIMDb" [formGroup]="cadastro"></dio-input-text>
+
           <mat-form-field class="full-width">
             <mat-select placeholder="Gênero *" formControlName="genero">
               <mat-option value="Ação">Açao</mat-option>
@@ -48,6 +41,7 @@
             </mat-select>
             <mat-error *ngIf="validacao.hasErrorValidator(f.genero, 'required')">Campo obrigatório!</mat-error>
           </mat-form-field>
+
         </mat-card-content>
         <mat-card-actions>
           <button color="accent" type="submit" mat-raised-button>Salvar</button>
