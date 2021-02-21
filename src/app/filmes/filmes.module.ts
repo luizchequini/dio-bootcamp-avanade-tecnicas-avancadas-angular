@@ -15,6 +15,9 @@ import { CamposModule } from '../shared/components/campos/campos.module';
     FormsModule,
     CamposModule
   ],
-  declarations: [CadastroFilmesComponent, ListagemFilmesComponent]
+  declarations: [
+    CadastroFilmesComponent,
+    ListagemFilmesComponent
+  ]
 })
 export class FilmesModule { }
