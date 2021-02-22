@@ -18,4 +18,9 @@ export class ValidarCamposService {
   hasError(control: AbstractControl, errorName: string): boolean{
     return control.hasError(errorName);
   }
+
+  lengthValidar(control: AbstractControl, errorName: string): number{
+    const e = control.errors[errorName];
+    return e.requiredLength || e.min || e.max || 0;
+  }
 }
