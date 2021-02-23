@@ -289,6 +289,26 @@
       "urlIMDb": "",
       "genero": "Terror",
       "id": 29
+    },
+    {
+      "titulo": "robson cruzué",
+      "urlFoto": "",
+      "dtLancamento": "2021-02-23T03:00:00.000Z",
+      "descricao": "",
+      "nota": 0,
+      "urlIMDb": "",
+      "genero": "Ação",
+      "id": 30
+    },
+    {
+      "titulo": "Luiz",
+      "urlFoto": "",
+      "dtLancamento": "2021-02-23T03:00:00.000Z",
+      "descricao": "",
+      "nota": 0,
+      "urlIMDb": "",
+      "genero": "Aventura",
+      "id": 31
     }
   ]
 }
