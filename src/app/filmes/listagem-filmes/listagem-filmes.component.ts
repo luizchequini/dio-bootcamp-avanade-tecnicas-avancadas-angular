@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { config } from 'process';
+import { debounceTime } from 'rxjs/operators';
 import { FilmesService } from 'src/app/core/filmes.service';
 import { ConfigParams } from 'src/app/shared/models/config-params';
 import { Filme } from 'src/app/shared/models/filme';
@@ -11,6 +11,8 @@ import { Filme } from 'src/app/shared/models/filme';
   styleUrls: ['./listagem-filmes.component.scss']
 })
 export class ListagemFilmesComponent implements OnInit {
+
+  readonly semImagem = "https://www.controlemunicipal.com.br/site/prefeitura/images/sem_foto_.jpg";
 
   config: ConfigParams = {
     pagina: 0,
@@ -35,7 +37,7 @@ export class ListagemFilmesComponent implements OnInit {
       }
     )
 
-    this.filtrosListagem.get('texto').valueChanges.subscribe((val: string) => {
+    this.filtrosListagem.get('texto').valueChanges.pipe(debounceTime(1000)).subscribe((val: string) => {
       this.config.pesquisa = val;
       this.resetarCOnsulta();
     });
