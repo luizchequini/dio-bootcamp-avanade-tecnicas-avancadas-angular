@@ -1,0 +1,39 @@
+<mat-toolbar class="app-title">Visualizar filme</mat-toolbar>
+
+<div class="main-div">
+
+  <mat-card class="center width50" >
+
+      <mat-card-content *ngIf="filme; else semRegistro">
+
+        <mat-list>
+
+          <a [href]="filme.urlIMDb" target="_blank">
+
+            <mat-list-item>Título: {{filme.titulo}}</mat-list-item>
+            <mat-list-item>Data de lançamento: {{filme.dtLancamento | date: 'dd/MM/yyyy'}}</mat-list-item>
+            <mat-list-item>Gênero: {{filme.genero}}</mat-list-item>
+            <mat-list-item>Nota IMDb: {{filme.nota}}</mat-list-item>
+            <mat-list-item class="quebrar-linha">{{filme.descricao}}</mat-list-item>
+            <img class="mat-card-image" [src]="filme.urlFoto || semImagem" [alt]="filme.titulo">
+
+          </a>
+
+        </mat-list>
+
+        <mat-card-actions>
+          <button color="accent" mat-raised-button>Editar</button>
+          <button color="warn" mat-raised-button (click)="excluir()">Excluir</button>
+        </mat-card-actions>
+
+      </mat-card-content>
+
+  </mat-card>
+
+</div>
+
+<ng-template #semRegistro>
+  <h1 class="full-width main-div">Nenhum registro encontrado!</h1>
+</ng-template>
+
+

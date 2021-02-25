@@ -121,16 +121,6 @@
       "id": 12
     },
     {
-      "titulo": "Teste sem imagem e descrição",
-      "urlFoto": "",
-      "dtLancamento": "2021-02-24T03:00:00.000Z",
-      "descricao": "",
-      "nota": 0,
-      "urlIMDb": "",
-      "genero": "Ação",
-      "id": 13
-    },
-    {
       "titulo": "Postagem com descrição pular linha",
       "urlFoto": "",
       "dtLancamento": "2021-02-24T03:00:00.000Z",
